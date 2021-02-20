@@ -21,21 +21,21 @@
   -->
 
 <template>
-	<Modal v-show="modal" :can-close="false">
+	<Modal v-show="modal" size="full" :can-close="false">
 		<div class="modal__content">
 			<h2 class="modal__title">
 				{{ t('polls', 'Public poll') }}
 			</h2>
 			<div class="modal__registration">
 				<div class="registration__login">
-					<h2> {{ t('polls', 'Do you want to login?') }} </h2>
+					<h3> {{ t('polls', 'Do you want to login?') }} </h3>
 					<ButtonDiv :title="t('polls', 'Login')" @click="login()" />
 				</div>
 
 				<div class="registration__registration">
-					<h2>{{ t('polls', 'Participate in public poll!') }}</h2>
+					<h3>{{ t('polls', 'Participate in public poll!') }}</h3>
 					<div class="section__username">
-						<h3>{{ t('polls', 'To participate, tell us how we can call you!') }}</h3>
+						<p>{{ t('polls', 'To participate, tell us how we can call you!') }}</p>
 						<input ref="userName" v-model="userName" :class="userNameCheckStatus"
 							type="text" :placeholder="t('polls', 'Enter your name')" @keyup.enter="submitRegistration">
 						<div>
@@ -44,7 +44,7 @@
 					</div>
 
 					<div class="section__email">
-						<h3>{{ t("polls", "With your email address you can subscribe to notifications and you will receive your personal link to this poll.") }}</h3>
+						<p>{{ t("polls", "With your email address you can subscribe to notifications and you will receive your personal link to this poll.") }}</p>
 						<input v-model="emailAddress" :class="emailAddressCheckStatus"
 							type="text" :placeholder="t('polls', 'Optional email address')" @keyup.enter="submitRegistration">
 						<div>
@@ -280,7 +280,6 @@ export default {
 			display: flex;
 			flex-direction: column;
 			flex: 1 auto;
-			min-width: 240px;
 			padding: 24px;
 			border-top: 1px solid;
 			border-right: 1px solid;
